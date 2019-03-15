@@ -1,0 +1,9 @@
+<div class="column">
+  <div class="title">
+    {{ column.title }}
+    <span class="add-card-button" (click)="addCard()">Add card</span>
+  </div>
+  <div class="cards">
+    <kanban-card *ngFor="let card of column.cards" [card]="card"></kanban-card>
+  </div>
+</div>
