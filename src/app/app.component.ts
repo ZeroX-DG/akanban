@@ -30,6 +30,7 @@ export class AppComponent {
     );
     column.cards.push(card);
     this.selectedColumn = null;
+    this.showCreateModal = false;
   }
 
   handleOpenAddCard(column: Column) {

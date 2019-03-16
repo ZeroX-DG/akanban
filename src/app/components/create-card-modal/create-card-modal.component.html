@@ -1,14 +1,18 @@
 <div class="create-card-modal">
   <div class="main-modal">
     <p class="title">Create new card</p>
-    <label for="title">Card title</label>
-    <input type="text" id="title" [(ngModel)]="cardTitle" />
-    <label for="description">Card description</label>
-    <textarea
-      name="description"
-      id="description"
-      [(ngModel)]="cardDescription"
-    ></textarea>
+    <div class="input-group">
+      <label for="title">Card title</label>
+      <input type="text" id="title" [(ngModel)]="cardTitle" />
+    </div>
+    <div class="input-group">
+      <label for="description">Card description</label>
+      <textarea
+        name="description"
+        id="description"
+        [(ngModel)]="cardDescription"
+      ></textarea>
+    </div>
     <button (click)="createCard()">Create card</button>
   </div>
 </div>
