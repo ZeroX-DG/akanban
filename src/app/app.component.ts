@@ -2,6 +2,7 @@ import { Component } from '@angular/core';
 import Column from './models/column';
 import Card from './models/card';
 import * as _ from 'lodash';
+import db from './lib/db';
 
 export interface IColumnChangeValue {
   card: Card;
@@ -23,14 +24,17 @@ export class AppComponent {
 
   constructor() {
     this.showCreateModal = false;
-    this.columns = [];
-    const columnNames: string[] = ['todos', 'work in progress', 'finished'];
-    columnNames.map(name => {
-      const column = new Column();
-      column.title = name;
-      column.cards = [];
-      this.columns.push(column);
-    });
+    this.columns = db.getBoard() || [];
+    // default values
+    if (this.columns.length === 0) {
+      const columnNames: string[] = ['todos', 'work in progress', 'finished'];
+      columnNames.map(name => {
+        const column = new Column();
+        column.title = name;
+        column.cards = [];
+        this.columns.push(column);
+      });
+    }
   }
 
   handleAddCard(card: Card) {
@@ -40,6 +44,7 @@ export class AppComponent {
     column.cards.push(card);
     this.selectedColumn = null;
     this.showCreateModal = false;
+    db.setBoard(this.columns);
   }
 
   handleOpenAddCard(column: Column) {
@@ -51,11 +56,16 @@ export class AppComponent {
     const oldColumn = this.columns.find(col =>
       col.cards.some(card => _.isEqual(card, value.card))
     );
+    const newColumn = this.columns.find(col => col.title === value.columnTitle);
+    if (!newColumn) {
+      return;
+    }
     oldColumn.cards = oldColumn.cards.filter(
       card => !_.isEqual(card, value.card)
     );
-    const newColumn = this.columns.find(col => col.title === value.columnTitle);
+
     newColumn.cards.push(value.card);
+    db.setBoard(this.columns);
   }
 
   handleCreateColumn() {
@@ -67,6 +77,7 @@ export class AppComponent {
     column.cards = [];
     this.columns.push(column);
     this.newColumnTitle = '';
+    db.setBoard(this.columns);
   }
 
   handleUpdateCard(card: Card) {
@@ -79,5 +90,6 @@ export class AppComponent {
     this.selectedCard.description = card.description;
     this.selectedCard = null;
     this.showUpdateModal = false;
+    db.setBoard(this.columns);
   }
 }
