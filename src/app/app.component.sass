@@ -1,0 +1,40 @@
+.board
+  width: 100%
+  height: 100%
+  box-sizing: border-box
+  padding: 20px 20px
+  .columns
+    width: 100%
+    height: 90%
+    overflow-x: auto
+    white-space: nowrap
+    &::-webkit-scrollbar
+      width: 10px
+      height: 10px
+    &::-webkit-scrollbar-track
+      background: transparent
+    &::-webkit-scrollbar-thumb
+      background: #171717
+    &::-webkit-scrollbar-corner
+      background: #0F0F0F
+  .tools
+    margin-bottom: 20px
+    input
+      padding: 10px
+      box-sizing: border-box
+      border-radius: 5px
+      border: 1px solid rgba(0, 0, 0, 0.25)
+      outline: none
+      font-size: 14px
+      margin-right: 10px
+      background: #171717
+      color: white
+    button
+      border: none
+      padding: 10px 20px
+      border-radius: 5px
+      background: #FD5739
+      color: white
+      font-size: 14px
+      cursor: pointer
+      outline: none

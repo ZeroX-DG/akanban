@@ -1,4 +1,10 @@
 <div class="board">
+  <div class="tools">
+    <div class="tool-group">
+      <input type="text" [style.width]="'275px'" [(ngModel)]="newColumnTitle" />
+      <button (click)="handleCreateColumn()">New column</button>
+    </div>
+  </div>
   <div class="columns">
     <kanban-column
       *ngFor="let column of columns"

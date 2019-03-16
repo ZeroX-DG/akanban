@@ -17,6 +17,7 @@ export class AppComponent {
   columns: Column[];
   showCreateModal: boolean;
   selectedColumn: Column;
+  newColumnTitle: string;
 
   constructor() {
     this.showCreateModal = false;
@@ -54,5 +55,16 @@ export class AppComponent {
     );
     const newColumn = this.columns.find(col => col.title === value.columnTitle);
     newColumn.cards.push(value.card);
+  }
+
+  handleCreateColumn() {
+    if (this.columns.some(col => col.title === this.newColumnTitle)) {
+      return;
+    }
+    const column = new Column();
+    column.title = this.newColumnTitle;
+    column.cards = [];
+    this.columns.push(column);
+    this.newColumnTitle = '';
   }
 }
