@@ -1,6 +1,6 @@
 import { Component, Input, Output, EventEmitter } from '@angular/core';
 import Column from 'src/app/models/column';
-import Card from 'src/app/models/card';
+import { IColumnChangeValue } from 'src/app/app.component';
 
 @Component({
   selector: 'kanban-column',
@@ -10,12 +10,18 @@ import Card from 'src/app/models/card';
 export class KanbanColumnComponent {
   @Input() column: Column;
   @Output() createCard: EventEmitter<Column>;
+  @Output() cardChangeColumn: EventEmitter<IColumnChangeValue>;
 
   constructor() {
     this.createCard = new EventEmitter();
+    this.cardChangeColumn = new EventEmitter();
   }
 
   addCard() {
     this.createCard.emit(this.column);
+  }
+
+  handleChangeColumn(value: IColumnChangeValue) {
+    this.cardChangeColumn.emit(value);
   }
 }

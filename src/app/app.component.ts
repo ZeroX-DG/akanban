@@ -1,6 +1,12 @@
 import { Component } from '@angular/core';
 import Column from './models/column';
 import Card from './models/card';
+import * as _ from 'lodash';
+
+export interface IColumnChangeValue {
+  card: Card;
+  columnTitle: string;
+}
 
 @Component({
   selector: 'app-root',
@@ -36,5 +42,17 @@ export class AppComponent {
   handleOpenAddCard(column: Column) {
     this.selectedColumn = column;
     this.showCreateModal = true;
+  }
+
+  handleCardChangeColumn(value: IColumnChangeValue) {
+    const oldColumn = this.columns.find(col =>
+      col.cards.some(card => _.isEqual(card, value.card))
+    );
+    oldColumn.cards.splice(
+      oldColumn.cards.findIndex(card => _.isEqual(card, value.card)),
+      1
+    );
+    const newColumn = this.columns.find(col => col.title === value.columnTitle);
+    newColumn.cards.push(value.card);
   }
 }

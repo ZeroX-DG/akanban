@@ -3,6 +3,7 @@
     <kanban-column
       *ngFor="let column of columns"
       (createCard)="handleOpenAddCard($event)"
+      (cardChangeColumn)="handleCardChangeColumn($event)"
       [column]="column"
     ></kanban-column>
   </div>
