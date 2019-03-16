@@ -1,6 +1,8 @@
 import { Component, Input, Output, EventEmitter } from '@angular/core';
 import Column from 'src/app/models/column';
 import { IColumnChangeValue } from 'src/app/app.component';
+import Card from 'src/app/models/card';
+import * as _ from 'lodash';
 
 @Component({
   selector: 'kanban-column',
@@ -23,5 +25,11 @@ export class KanbanColumnComponent {
 
   handleChangeColumn(value: IColumnChangeValue) {
     this.cardChangeColumn.emit(value);
+  }
+
+  handleRemoveCard(card: Card) {
+    this.column.cards = this.column.cards.filter(
+      fcard => !_.isEqual(card, fcard)
+    );
   }
 }

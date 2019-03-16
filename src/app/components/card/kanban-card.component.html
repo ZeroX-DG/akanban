@@ -1,4 +1,13 @@
 <div class="card" #cardEl>
+  <div class="tools">
+    <span
+      class="tool"
+      (click)="handleRemoveCard()"
+      [ngStyle]="{ color: '#FD5739', cursor: 'pointer' }"
+    >
+      Remove
+    </span>
+  </div>
   <p class="title">{{ card.title }}</p>
   <p class="description">{{ card.description }}</p>
 </div>

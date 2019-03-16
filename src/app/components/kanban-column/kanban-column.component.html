@@ -6,6 +6,7 @@
   <div class="cards">
     <kanban-card
       (columnChange)="handleChangeColumn($event)"
+      (removeCard)="handleRemoveCard($event)"
       *ngFor="let card of column.cards"
       [card]="card"
     ></kanban-card>
