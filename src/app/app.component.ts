@@ -51,9 +51,8 @@ export class AppComponent {
     const oldColumn = this.columns.find(col =>
       col.cards.some(card => _.isEqual(card, value.card))
     );
-    oldColumn.cards.splice(
-      oldColumn.cards.findIndex(card => _.isEqual(card, value.card)),
-      1
+    oldColumn.cards = oldColumn.cards.filter(
+      card => !_.isEqual(card, value.card)
     );
     const newColumn = this.columns.find(col => col.title === value.columnTitle);
     newColumn.cards.push(value.card);
