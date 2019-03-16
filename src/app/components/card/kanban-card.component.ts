@@ -22,6 +22,7 @@ export class KanbanCardComponent implements AfterViewInit {
   @Output() removeCard: EventEmitter<Card>;
   @Output() updateCard: EventEmitter<Card>;
   @ViewChild('cardEl', { read: ElementRef }) cardEl: ElementRef;
+  columnToChange: string;
 
   constructor() {
     this.columnChange = new EventEmitter();
@@ -40,18 +41,17 @@ export class KanbanCardComponent implements AfterViewInit {
           );
           if (distanceBetweenCenter <= 200) {
             colEl.style.border = '1px solid red';
+            this.columnToChange = colEl.dataset.columnTitle;
           } else {
             colEl.style.border = '1px solid transparent';
-          }
-          if (distanceBetweenCenter <= 50) {
-            this.columnChange.emit({
-              card: this.card,
-              columnTitle: colEl.dataset.columnTitle
-            });
           }
         });
       },
       onDrop: () => {
+        this.columnChange.emit({
+          card: this.card,
+          columnTitle: this.columnToChange
+        });
         const columns = document.getElementsByClassName('column');
         Array.from(columns).map((colEl: HTMLElement) => {
           colEl.style.border = '1px solid transparent';
