@@ -1,5 +1,9 @@
 # Akanban
 
+<p algin="center">
+  <img src="assets/screenshot.png">
+</p>
+
 ## About this project
 
 This is a simple kanban board that I created to try out Angular. It's generated using Angular CLI. All board data is saved in `localStorage` therefore it doesn't require any fancy database connection.
