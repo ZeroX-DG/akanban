@@ -40,7 +40,7 @@ export class KanbanCardComponent implements AfterViewInit {
             colEl
           );
           if (distanceBetweenCenter <= 200) {
-            colEl.style.border = '1px solid red';
+            colEl.style.border = '1px solid #1990ff';
             this.columnToChange = colEl.dataset.columnTitle;
           } else {
             colEl.style.border = '1px solid transparent';
