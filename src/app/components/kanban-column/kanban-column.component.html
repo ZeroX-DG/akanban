@@ -1,7 +1,15 @@
 <div class="column" [attr.data-column-title]="column.title">
   <div class="title">
     {{ column.title }}
-    <span class="add-card-button" (click)="addCard()">New card</span>
+    <div class="tools">
+      <span class="add-card-button" (click)="addCard()">New card</span>
+      <span
+        class="add-card-button"
+        (click)="handleRemoveColumn()"
+        [style.color]="'#FD5739'"
+        >Remove column</span
+      >
+    </div>
   </div>
   <div class="cards">
     <kanban-card

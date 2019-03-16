@@ -92,4 +92,9 @@ export class AppComponent {
     this.showUpdateModal = false;
     db.setBoard(this.columns);
   }
+
+  handleRemoveColumn(column: Column) {
+    this.columns = this.columns.filter(col => !_.isEqual(col, column));
+    db.setBoard(this.columns);
+  }
 }
