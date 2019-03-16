@@ -16,8 +16,10 @@ export interface IColumnChangeValue {
 export class AppComponent {
   columns: Column[];
   showCreateModal: boolean;
+  showUpdateModal: boolean;
   selectedColumn: Column;
   newColumnTitle: string;
+  selectedCard: Card;
 
   constructor() {
     this.showCreateModal = false;
@@ -66,5 +68,17 @@ export class AppComponent {
     column.cards = [];
     this.columns.push(column);
     this.newColumnTitle = '';
+  }
+
+  handleUpdateCard(card: Card) {
+    this.selectedCard = card;
+    this.showUpdateModal = true;
+  }
+
+  handleFinishUpdateCard(card: Card) {
+    this.selectedCard.title = card.title;
+    this.selectedCard.description = card.description;
+    this.selectedCard = null;
+    this.showUpdateModal = false;
   }
 }

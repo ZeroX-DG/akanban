@@ -20,11 +20,13 @@ export class KanbanCardComponent implements AfterViewInit {
   @Input() card: Card;
   @Output() columnChange: EventEmitter<IColumnChangeValue>;
   @Output() removeCard: EventEmitter<Card>;
+  @Output() updateCard: EventEmitter<Card>;
   @ViewChild('cardEl', { read: ElementRef }) cardEl: ElementRef;
 
   constructor() {
     this.columnChange = new EventEmitter();
     this.removeCard = new EventEmitter();
+    this.updateCard = new EventEmitter();
   }
 
   ngAfterViewInit() {
@@ -60,5 +62,9 @@ export class KanbanCardComponent implements AfterViewInit {
 
   handleRemoveCard() {
     this.removeCard.emit(this.card);
+  }
+
+  handleUpdateCard() {
+    this.updateCard.emit(this.card);
   }
 }

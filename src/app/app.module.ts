@@ -7,13 +7,15 @@ import { AppComponent } from './app.component';
 import { KanbanColumnComponent } from './components/kanban-column/kanban-column.component';
 import { KanbanCardComponent } from './components/card/kanban-card.component';
 import { CreateCardComponent } from './components/create-card-modal/create-card-modal.component';
+import { UpdateCardComponent } from './components/update-card-modal/update-card-modal.component';
 
 @NgModule({
   declarations: [
     AppComponent,
     KanbanColumnComponent,
     KanbanCardComponent,
-    CreateCardComponent
+    CreateCardComponent,
+    UpdateCardComponent
   ],
   imports: [BrowserModule, AppRoutingModule, FormsModule],
   providers: [],

@@ -1,0 +1,18 @@
+<div class="update-card-modal">
+  <div class="main-modal">
+    <p class="title">Update card</p>
+    <div class="input-group">
+      <label for="title">Card title</label>
+      <input type="text" id="title" [(ngModel)]="cardTitle" />
+    </div>
+    <div class="input-group">
+      <label for="description">Card description</label>
+      <textarea
+        name="description"
+        id="description"
+        [(ngModel)]="cardDescription"
+      ></textarea>
+    </div>
+    <button (click)="updateCard()">Update card</button>
+  </div>
+</div>

@@ -10,6 +10,7 @@
       *ngFor="let column of columns"
       (createCard)="handleOpenAddCard($event)"
       (cardChangeColumn)="handleCardChangeColumn($event)"
+      (updateCard)="handleUpdateCard($event)"
       [column]="column"
     ></kanban-column>
   </div>
@@ -17,5 +18,10 @@
     *ngIf="showCreateModal"
     (finish)="handleAddCard($event)"
   ></create-card-modal>
+  <update-card-modal
+    *ngIf="showUpdateModal"
+    [defaultCard]="selectedCard"
+    (finish)="handleFinishUpdateCard($event)"
+  ></update-card-modal>
 </div>
 <router-outlet></router-outlet>

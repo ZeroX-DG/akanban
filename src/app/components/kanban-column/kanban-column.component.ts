@@ -12,10 +12,12 @@ import * as _ from 'lodash';
 export class KanbanColumnComponent {
   @Input() column: Column;
   @Output() createCard: EventEmitter<Column>;
+  @Output() updateCard: EventEmitter<Card>;
   @Output() cardChangeColumn: EventEmitter<IColumnChangeValue>;
 
   constructor() {
     this.createCard = new EventEmitter();
+    this.updateCard = new EventEmitter();
     this.cardChangeColumn = new EventEmitter();
   }
 
@@ -31,5 +33,9 @@ export class KanbanColumnComponent {
     this.column.cards = this.column.cards.filter(
       fcard => !_.isEqual(card, fcard)
     );
+  }
+
+  handleUpdateCard(card: Card) {
+    this.updateCard.emit(card);
   }
 }
