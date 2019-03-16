@@ -4,7 +4,7 @@
   "scripts": {
     "ng": "ng",
     "start": "ng serve",
-    "build": "ng build --prod --base-href=\"https://zerox-dg.github.io/akanban\"",
+    "build": "ng build --prod --base-href=\"https://zerox-dg.github.io/akanban/\"",
     "test": "ng test",
     "lint": "ng lint",
     "e2e": "ng e2e"
