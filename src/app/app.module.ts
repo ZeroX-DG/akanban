@@ -5,7 +5,7 @@ import { FormsModule } from '@angular/forms';
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { KanbanColumnComponent } from './components/kanban-column/kanban-column.component';
-import { KanbanCardComponent } from './components/card/kanban-card.component';
+import { KanbanCardComponent } from './components/kanban-card/kanban-card.component';
 import { CreateCardComponent } from './components/create-card-modal/create-card-modal.component';
 import { UpdateCardComponent } from './components/update-card-modal/update-card-modal.component';
 
