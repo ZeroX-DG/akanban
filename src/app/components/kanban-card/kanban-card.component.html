@@ -1,10 +1,10 @@
 <div class="card" #cardEl>
   <div class="tools">
     <span class="tool" (click)="handleRemoveCard()" [style.color]="'#FD5739'">
-      Remove
+      <i class="fa fa-trash"></i>
     </span>
     <span class="tool" (click)="handleUpdateCard()" [style.color]="'#3498db'">
-      Update
+      <i class="fa fa-edit"></i>
     </span>
   </div>
   <p class="title">{{ card.title }}</p>

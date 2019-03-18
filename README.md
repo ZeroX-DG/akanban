@@ -10,7 +10,7 @@ This is a simple kanban board that I created to try out Angular. It's generated 
 
 ## Todo
 
-- [ ] Replace some text with icon from fontawesome
+- [x] ~~Replace some text with icon from fontawesome~~
 - [ ] Drag and drop column
 - [ ] Update column title
 - [ ] Add some tests

@@ -2,13 +2,16 @@
   <div class="title">
     {{ column.title }}
     <div class="tools">
-      <span class="add-card-button" (click)="addCard()">New card</span>
+      <span class="add-card-button" (click)="addCard()">
+        <i class="fa fa-plus"></i>
+      </span>
       <span
         class="add-card-button"
         (click)="handleRemoveColumn()"
         [style.color]="'#FD5739'"
-        >Remove column</span
       >
+        <i class="fa fa-trash"></i>
+      </span>
     </div>
   </div>
   <div class="cards">
