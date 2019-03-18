@@ -16,6 +16,9 @@ export class CreateCardComponent {
   }
 
   createCard() {
+    if (!this.cardTitle || !this.cardDescription) {
+      return;
+    }
     const card = new Card();
     card.title = this.cardTitle;
     card.description = this.cardDescription;
