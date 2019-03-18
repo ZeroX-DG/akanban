@@ -93,6 +93,10 @@ export class AppComponent {
     this.showUpdateModal = true;
   }
 
+  handleRemoveCard() {
+    db.setBoard(this.columns);
+  }
+
   handleFinishUpdateCard(card: Card) {
     this.selectedCard.title = card.title;
     this.selectedCard.description = card.description;

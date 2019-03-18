@@ -13,6 +13,7 @@ export class KanbanColumnComponent {
   @Input() column: Column;
   @Output() createCard: EventEmitter<Column>;
   @Output() updateCard: EventEmitter<Card>;
+  @Output() removeCard: EventEmitter<any>;
   @Output() cardChangeColumn: EventEmitter<IColumnChangeValue>;
   @Output() removeColumn: EventEmitter<Column>;
 
@@ -21,6 +22,7 @@ export class KanbanColumnComponent {
     this.updateCard = new EventEmitter();
     this.cardChangeColumn = new EventEmitter();
     this.removeColumn = new EventEmitter();
+    this.removeCard = new EventEmitter();
   }
 
   addCard() {
@@ -35,6 +37,7 @@ export class KanbanColumnComponent {
     this.column.cards = this.column.cards.filter(
       fcard => !_.isEqual(card, fcard)
     );
+    this.removeCard.emit();
   }
 
   handleUpdateCard(card: Card) {
