@@ -8,12 +8,22 @@ import Card from 'src/app/models/card';
 })
 export class UpdateCardComponent implements OnInit {
   @Output() finish: EventEmitter<Card>;
+  @Output() closeModal: EventEmitter<any>;
   @Input() defaultCard: Card;
   cardTitle: string;
   cardDescription: string;
 
   constructor() {
     this.finish = new EventEmitter();
+    this.closeModal = new EventEmitter();
+  }
+
+  handleCloseModal() {
+    this.closeModal.emit();
+  }
+
+  preventPropagation(e: MouseEvent) {
+    e.stopPropagation();
   }
 
   ngOnInit() {

@@ -17,11 +17,13 @@
   </div>
   <create-card-modal
     *ngIf="showCreateModal"
+    (closeModal)="handleCloseModal('create')"
     (finish)="handleAddCard($event)"
   ></create-card-modal>
   <update-card-modal
     *ngIf="showUpdateModal"
     [defaultCard]="selectedCard"
+    (closeModal)="handleCloseModal('update')"
     (finish)="handleFinishUpdateCard($event)"
   ></update-card-modal>
 </div>

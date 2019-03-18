@@ -37,6 +37,14 @@ export class AppComponent {
     }
   }
 
+  handleCloseModal(type: string) {
+    if (type === 'create') {
+      this.showCreateModal = false;
+    } else if (type === 'update') {
+      this.showUpdateModal = false;
+    }
+  }
+
   handleAddCard(card: Card) {
     const column = this.columns.find(
       col => col.title === this.selectedColumn.title

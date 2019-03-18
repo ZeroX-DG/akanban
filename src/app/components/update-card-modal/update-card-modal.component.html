@@ -1,5 +1,5 @@
-<div class="update-card-modal">
-  <div class="main-modal">
+<div class="update-card-modal" (click)="handleCloseModal()">
+  <div class="main-modal" (click)="preventPropagation($event)">
     <p class="title">Update card</p>
     <div class="input-group">
       <label for="title">Card title</label>

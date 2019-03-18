@@ -8,11 +8,21 @@ import Card from 'src/app/models/card';
 })
 export class CreateCardComponent {
   @Output() finish: EventEmitter<Card>;
+  @Output() closeModal: EventEmitter<any>;
   cardTitle: string;
   cardDescription: string;
 
   constructor() {
     this.finish = new EventEmitter();
+    this.closeModal = new EventEmitter();
+  }
+
+  handleCloseModal() {
+    this.closeModal.emit();
+  }
+
+  preventPropagation(e: MouseEvent) {
+    e.stopPropagation();
   }
 
   createCard() {
